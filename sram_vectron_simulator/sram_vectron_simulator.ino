@@ -143,11 +143,13 @@ void setup() {
   pinMode(A1, OUTPUT); // Upper address clock.
   pinMode(A2, OUTPUT); // Data clock.
   pinMode(A3, OUTPUT); // WE
+  pinMode(A4, OUTPUT); // Mode clock (program = data0 high; monitor output = data1 low)
 
   digitalWrite(A0, 1);
   digitalWrite(A1, 1);
   digitalWrite(A2, 1);
   digitalWrite(A3, 1);
+  digitalWrite(A4, 1);
 
   Serial.begin(9600);
 }
@@ -155,7 +157,15 @@ void setup() {
 int i = 0;
 int val = 0;
 
-void loop() {    
+void loop() {
+  // Program mode.
+  digitalWrite(2, 1);
+  digitalWrite(A4, 0);
+  delayMicroseconds(2);
+  digitalWrite(A4, 1);
+  
+
+  
   for (int c=0; c<120; c++) {
     for (int r=0; r<160; r++) {
 
@@ -229,4 +239,13 @@ void loop() {
 
 
  Serial.println("Done writing.");
+
+  // Display mode.
+  digitalWrite(2, 0);
+  digitalWrite(A4, 0);
+  delayMicroseconds(2);
+  digitalWrite(A4, 1);
+
+ delay(99999999);
+ 
 }
