@@ -4,13 +4,14 @@
 ; https://github.com/nickbild/vectron_vga
 ;
 ; Reserved memory:
-; $0100-$01FF - 6502 stack
 ;
-; $FFF5 - VGA mode - program or display.
-; $FFF6 - VRAM write enable (WE) pin.
-; $FFF7 - VRAM data clock.
-; $FFF8 - VRAM lower address clock.
-; $FFF9 - VRAM upper address clock.
+; $0005 - VRAM data clock.
+; $0006 - VRAM lower address clock.
+; $0007 - VRAM upper address clock.
+; $00F8 - VGA mode - program or display.
+; $00F9 - VRAM write enable (WE) pin.
+;
+; $0100-$01FF - 6502 stack
 ;
 ; $FFFA - NMI IRQ Vector
 ; $FFFB - NMI IRQ Vector
@@ -26,87 +27,90 @@
 StartExe	ORG $8000
     ; Set VGA generator to "program" mode.
     lda #$01
-    sta $FFF5
+    sta $00F8
 
     ;;;;
     ;; Load data to VRAM.
     ;;;;
 
+    lda #$A0
+    sta $0006 ; Clock lower address.
     lda #$00
-    sta $FFF8 ; Clock lower address.
-    lda #$00
-    sta $FFF9 ; Clock upper address.
-    lda #$00
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
-
+    sta $0007 ; Clock upper address.
     lda #$01
-    sta $FFF8 ; Clock lower address.
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
+
+    lda #$A1
+    sta $0006 ; Clock lower address.
     lda #$00
-    sta $FFF9 ; Clock upper address.
+    sta $0007 ; Clock upper address.
     lda #$02
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
 
+    lda #$A2
+    sta $0006 ; Clock lower address.
+    lda #$00
+    sta $0007 ; Clock upper address.
+    lda #$04
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
+
+    lda #$A3
+    sta $0006 ; Clock lower address.
+    lda #$00
+    sta $0007 ; Clock upper address.
+    lda #$01
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
+
+    lda #$A4
+    sta $0006 ; Clock lower address.
+    lda #$00
+    sta $0007 ; Clock upper address.
     lda #$02
-    sta $FFF8 ; Clock lower address.
-    lda #$00
-    sta $FFF9 ; Clock upper address.
-    lda #$04
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
 
-    lda #$03
-    sta $FFF8 ; Clock lower address.
+    lda #$A5
+    sta $0006 ; Clock lower address.
     lda #$00
-    sta $FFF9 ; Clock upper address.
-    lda #$00
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
-
+    sta $0007 ; Clock upper address.
     lda #$04
-    sta $FFF8 ; Clock lower address.
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
+
+    lda #$A6
+    sta $0006 ; Clock lower address.
     lda #$00
-    sta $FFF9 ; Clock upper address.
+    sta $0007 ; Clock upper address.
+    lda #$01
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
+
+    lda #$A7
+    sta $0006 ; Clock lower address.
+    lda #$00
+    sta $0007 ; Clock upper address.
     lda #$02
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
 
-    lda #$05
-    sta $FFF8 ; Clock lower address.
+    lda #$A8
+    sta $0006  ; Clock lower address.
     lda #$00
-    sta $FFF9 ; Clock upper address.
+    sta $0007 ; Clock upper address.
     lda #$04
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
-
-    lda #$06
-    sta $FFF8 ; Clock lower address.
-    lda #$00
-    sta $FFF9 ; Clock upper address.
-    lda #$00
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
-
-    lda #$07
-    sta $FFF8 ; Clock lower address.
-    lda #$00
-    sta $FFF9 ; Clock upper address.
-    lda #$02
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
-
-    lda #$08
-    sta $FFF8 ; Clock lower address.
-    lda #$00
-    sta $FFF9 ; Clock upper address.
-    lda #$04
-    sta $FFF7 ; Clock data.
-    lda $FFF6 ; Pulse WE.
+    sta $0005 ; Clock data.
+    lda $00F9 ; Pulse WE.
 
     ; Set VGA generator to "display" mode.
     lda #$00
-    sta $FFF5
+    sta $00F8
+
+MainLoop
+    jmp MainLoop
 
 ; Store the location of key program sections.
 		ORG $FFFC
