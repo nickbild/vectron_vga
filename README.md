@@ -2,7 +2,9 @@
 
 Coming soon!
 
-Vectron VGA generates a 640x480 @ 60Hz VGA signal and is designed to interface with the [Vectron 64](https://github.com/nickbild/vectron_64) 6502-based breadboard computer.  The interface can also be used by other devices such as Arduino microcontroller dev boards ([example here](https://github.com/nickbild/vectron_vga/tree/master/sram_vectron_simulator)).
+Vectron VGA generates a 640x480@60Hz 3-bit color VGA signal and is designed to interface with the [Vectron 64](https://github.com/nickbild/vectron_64) 6502-based breadboard computer.  The interface can also be used by other devices such as Arduino microcontroller dev boards ([example here](https://github.com/nickbild/vectron_vga/tree/master/sram_vectron_simulator)).
+
+The resolution is reduced to 160x120@60Hz, because anything higher just isn't retro enough for me.  :)  This also reduces the VRAM requirements and processing overhead of screen updates, as an added benefit.
 
 ## How It Works
 
