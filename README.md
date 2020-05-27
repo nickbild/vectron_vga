@@ -1,10 +1,14 @@
 # Vectron VGA
 
-Vectron VGA generates a 640x480@60Hz 3-bit color VGA signal and is designed to interface with the [Vectron 64](https://github.com/nickbild/vectron_64) 6502-based breadboard computer.  The interface can also be used by other devices such as Arduino microcontroller dev boards ([example here](https://github.com/nickbild/vectron_vga/tree/master/sram_vectron_simulator)).
+Vectron VGA generates a 640x480@60Hz 3-bit color VGA signal and is designed to interface with the [Vectron 64](https://github.com/nickbild/vectron_64) 6502-CPU based breadboard computer.  It was built with 7400-series integrated circuits.
 
-The resolution is reduced to 160x120@60Hz, because anything higher just isn't retro enough for me.  :)  This also reduces the VRAM requirements and processing overhead of screen updates, as an added benefit.
+The interface can also be used by other devices such as Arduino microcontroller dev boards ([example here](https://github.com/nickbild/vectron_vga/tree/master/sram_vectron_simulator)).
+
+The resolution is reduced to 160x120@60Hz, because anything higher just isn't retro enough for me.  :)  This also reduces the VRAM requirements and processing overhead of screen updates as an added benefit.
 
 ## How It Works
+
+Frequency dividing flip flops reduce the 25.175 MHz clock four-fold to 6.29375 MHz.  This causes each pixel to be repeated 4 times on the horizontal axis.  Each vertical line is also repeated 4 times to reduce the resolution to 160x120, while still generating a standard 640x480 VGA signal.  The crystal oscillator and frequency divider are soldered onto perfboard -- I don't trust breadboards at that speed -- and the 6.29375 MHz signal is fed into the breadboards.
 
 ## Media
 
