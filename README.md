@@ -39,6 +39,8 @@ sta $00F8
 
 I also have a working example for Arduino boards [here](https://github.com/nickbild/vectron_vga/tree/master/sram_vectron_simulator).
 
+If you would like more details than are provided in this high-level overview, see the circuit diagram in the [Media section](https://github.com/nickbild/vectron_vga#media).
+
 ## Media
 
 Circuit diagram:
