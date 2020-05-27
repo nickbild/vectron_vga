@@ -10,11 +10,23 @@ The resolution is reduced to 160x120@60Hz, because anything higher just isn't re
 
 ## Media
 
-Circuit Diagram:
+Circuit diagram:
 
 ![circuit_diagram](https://raw.githubusercontent.com/nickbild/vectron_vga/master/diagrams/circuit_diagram_bb_sm.jpg)
 
 [Fritzing Download](https://github.com/nickbild/vectron_vga/raw/master/diagrams/circuit_diagram.fzz)
+
+Prince of Persia title screen:
+
+![prince_of_persia](https://raw.githubusercontent.com/nickbild/vectron_vga/master/media/prince_of_persia_sm.jpg)
+
+Color bars test, showing all 8 glorious colors.
+
+![prince_of_persia](https://raw.githubusercontent.com/nickbild/vectron_vga/master/media/color_bars_sm.jpg)
+
+Full setup:
+
+![full_setup](https://raw.githubusercontent.com/nickbild/vectron_vga/master/media/full_setup_sm.jpg)
 
 ## Bill of Materials
 
