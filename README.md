@@ -10,6 +10,12 @@ The resolution is reduced to 160x120@60Hz, because anything higher just isn't re
 
 ## Media
 
+Circuit Diagram:
+
+[circuit_diagram](https://raw.githubusercontent.com/nickbild/vectron_vga/master/diagrams/circuit_diagram_bb_sm.jpg)
+
+[Fritzing Download](https://github.com/nickbild/vectron_vga/raw/master/diagrams/circuit_diagram.fzz)
+
 ## Bill of Materials
 
 - 9 x 2.2kΩ Resistor
