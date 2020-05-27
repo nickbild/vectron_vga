@@ -6,6 +6,10 @@ The interface can also be used by other devices, such as Arduino microcontroller
 
 The effective resolution is reduced to 160x120@60Hz, because anything higher just isn't retro enough for me.  :)  This also reduces the VRAM requirements and processing overhead of screen updates as an added benefit.
 
+<p align="center">
+<img src="https://raw.githubusercontent.com/nickbild/vectron_vga/master/media/vectron_vga.gif">
+</p>
+
 ## How It Works
 
 Frequency dividing flip-flops reduce the 25.175 MHz clock four-fold to 6.29375 MHz.  This causes each pixel to be repeated 4 times on the horizontal axis.  Each vertical line is also repeated 4 times to reduce the resolution to 160x120, while still generating a standard 640x480 VGA signal.  The crystal oscillator and frequency divider are soldered onto perfboard -- I don't trust breadboards at that speed -- and the 6.29375 MHz signal is fed into the breadboards.
@@ -42,6 +46,9 @@ I also have a working example for Arduino boards [here](https://github.com/nickb
 If you would like more details than are provided in this high-level overview, see the circuit diagram in the [Media section](https://github.com/nickbild/vectron_vga#media).
 
 ## Media
+
+YouTube video:
+https://www.youtube.com/watch?v=riF9NnIJbLo
 
 Circuit diagram:
 
