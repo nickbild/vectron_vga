@@ -57,7 +57,9 @@ Prince of Persia title screen:
 
 Color bars test, showing all 8 glorious colors.
 
-![prince_of_persia](https://raw.githubusercontent.com/nickbild/vectron_vga/master/media/color_bars_sm.jpg)
+![color_bars](https://raw.githubusercontent.com/nickbild/vectron_vga/master/media/color_bars_sm.jpg)
+
+6502 code to generate color bars [is here](https://github.com/nickbild/vectron_vga/blob/master/display_graphics.asm).
 
 Full setup (Vectron 64 on the left):
 
